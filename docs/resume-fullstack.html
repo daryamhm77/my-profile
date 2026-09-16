@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Darya Mohammadi — Full-Stack Engineer</title>
+    <style>
+      @page {
+        size: 595pt 1126pt;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 595pt;
+        background: #fff;
+        color: #111;
+        font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        position: relative;
+        width: 595pt;
+        min-height: 1126pt;
+        padding: 16pt 22pt 16pt 70pt;
+        overflow: hidden;
+      }
+
+      .rail {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 48pt;
+        background: #000;
+      }
+
+      .rail-label {
+        position: absolute;
+        left: -46pt;
+        top: 28pt;
+        color: #fff;
+        font-size: 10pt;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        transform: rotate(-90deg);
+        transform-origin: left center;
+      }
+
+      header .rail-label {
+        top: 56pt;
+      }
+
+      .section .rail-label {
+        top: 36pt;
+      }
+
+      header {
+        position: relative;
+        display: grid;
+        grid-template-columns: 86pt 1fr auto;
+        gap: 14pt;
+        align-items: start;
+        padding-bottom: 14pt;
+      }
+
+      .photo {
+        width: 79pt;
+        height: 79pt;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center 20%;
+        display: block;
+      }
+
+      h1 {
+        color: #2eaacc;
+        font-size: 18.5pt;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.15;
+      }
+
+      .title {
+        margin-top: 5pt;
+        font-size: 11.5pt;
+        font-weight: 700;
+        color: #111;
+      }
+
+      .rule {
+        width: 49pt;
+        height: 1.15pt;
+        background: #2eaacc;
+        margin: 8pt 0 7pt;
+      }
+
+      .focus {
+        font-size: 8.4pt;
+        line-height: 1.35;
+        color: #6a6a6a;
+        max-width: 230pt;
+      }
+
+      .focus strong {
+        color: #111;
+        font-weight: 700;
+      }
+
+      .contact {
+        text-align: right;
+        font-size: 8.2pt;
+        line-height: 1.55;
+        color: #111;
+        padding-top: 4pt;
+      }
+
+      .contact a {
+        display: block;
+      }
+
+      .section {
+        position: relative;
+        border-top: 1.15pt solid #2eaacc;
+        padding: 12pt 0 7pt;
+      }
+
+      .job,
+      .skill,
+      .meta-row {
+        display: grid;
+        grid-template-columns: 128pt 1fr;
+        column-gap: 16pt;
+      }
+
+      .jobs {
+        position: relative;
+      }
+
+      .jobs::before {
+        content: "";
+        position: absolute;
+        left: -9.7pt;
+        top: 6pt;
+        bottom: 8pt;
+        width: 1.5pt;
+        background: #2eaacc;
+      }
+
+      .job + .job {
+        margin-top: 12pt;
+      }
+
+      .job + .job .role::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -6.5pt;
+        height: 1pt;
+        background: #2eaacc;
+      }
+
+      .left {
+        position: relative;
+      }
+
+      .when,
+      .where {
+        font-size: 7.3pt;
+        color: #606060;
+        line-height: 1.3;
+      }
+
+      .company {
+        margin-top: 7pt;
+        color: #2eaacc;
+        font-size: 8.4pt;
+        font-weight: 700;
+      }
+
+      .summary {
+        margin-top: 5pt;
+        font-size: 7.5pt;
+        line-height: 1.32;
+        color: #6a6a6a;
+        max-width: 118pt;
+      }
+
+      .role {
+        position: relative;
+      }
+
+      .role h2 {
+        font-size: 10.4pt;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 6pt;
+      }
+
+      .role ul,
+      .cert ul {
+        list-style: disc;
+        padding-left: 12pt;
+      }
+
+      .role li,
+      .cert li {
+        font-size: 8pt;
+        line-height: 1.32;
+        color: #6a6a6a;
+        margin-bottom: 2.2pt;
+      }
+
+      .links {
+        margin-top: 3pt;
+        font-size: 7.3pt;
+        color: #2eaacc;
+      }
+
+      .dot {
+        position: absolute;
+        left: -14.2pt;
+        top: 2pt;
+        width: 10pt;
+        height: 10pt;
+        border: 2pt solid #2eaacc;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 1;
+      }
+
+      .dot.inner::after {
+        content: "";
+        position: absolute;
+        inset: 1.4pt;
+        background: #2eaacc;
+        border-radius: 50%;
+      }
+
+      .skill + .skill {
+        margin-top: 9pt;
+      }
+
+      .skill-label {
+        position: relative;
+        color: #2eaacc;
+        font-size: 8.6pt;
+        font-weight: 700;
+        line-height: 1.25;
+        padding-left: 14pt;
+      }
+
+      .skill-label .dot {
+        top: 1pt;
+        left: 0;
+      }
+
+      .skill p {
+        font-size: 8pt;
+        line-height: 1.38;
+        color: #6a6a6a;
+      }
+
+      .school {
+        font-size: 10.2pt;
+        font-weight: 700;
+        color: #111;
+      }
+
+      .degree {
+        margin-top: 3pt;
+        font-size: 8pt;
+        color: #6a6a6a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <aside class="rail" aria-hidden="true"></aside>
+
+      <header>
+        <span class="rail-label">Info</span>
+        <img
+          class="photo"
+          src="resume-photo.png"
+          alt="Darya Mohammadi"
+        />
+        <div>
+          <h1>Darya Mohammadi</h1>
+          <p class="title">Full-Stack Engineer</p>
+          <div class="rule"></div>
+          <p class="focus">
+            <strong>Experience:</strong> Full-Stack | Backend Systems |
+            Real-Time Systems | DevOps
+          </p>
+        </div>
+        <div class="contact">
+          <a href="mailto:daryaprm88@gmail.com">daryaprm88@gmail.com</a>
+          <a href="tel:+989361610362">+98 936 161 0362</a>
+          <a href="https://github.com/daryamhm77">GitHub</a>
+          <a href="https://www.linkedin.com/in/darya-mohammadi7">LinkedIn</a>
+        </div>
+      </header>
+
+      <section class="section">
+        <span class="rail-label">Experience</span>
+        <div class="jobs">
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">May 2025 – Present</p>
+              <p class="where">Frankfurt, Germany<br />(Remote)</p>
+              <p class="company">ETM Passport</p>
+              <p class="summary">
+                Enterprise Digital Product Passport platform on microservices.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Backend Engineer</h2>
+              <ul>
+                <li>
+                  Developed core services for a distributed NestJS microservices
+                  architecture (15+ services) utilizing RabbitMQ for async
+                  communication.
+                </li>
+                <li>
+                  Implemented secure authentication/authorization leveraging JWT,
+                  session management, RBAC, and ABAC.
+                </li>
+                <li>
+                  Built high-performance REST APIs via API Gateway and
+                  orchestrated Docker-based microservices deployments.
+                </li>
+                <li>
+                  Designed automated CI/CD pipelines, integrating Redis for
+                  caching/rate-limiting and MinIO for secure S3 storage.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">April 2026 – June 2026</p>
+              <p class="where">Frankfurt, Germany<br />(Remote)</p>
+              <p class="company">MitaMed</p>
+              <p class="summary">
+                Enterprise-grade real-time driver and vehicle tracking system.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Backend Engineer</h2>
+              <ul>
+                <li>
+                  Designed and implemented a real-time live monitoring platform
+                  and bidirectional WebSocket gateways using Socket.IO.
+                </li>
+                <li>
+                  Implemented high-performance live driver tracking using Redis
+                  GEO location services (GEOADD, GEOSEARCH, GEORADIUS).
+                </li>
+                <li>
+                  Built a Direct Chat service supporting one-to-one messaging
+                  with real-time event delivery and Redis Pub/Sub distribution.
+                </li>
+                <li>
+                  Designed scalable backend services following Hexagonal
+                  Architecture and integrated MinIO for media uploads.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">Sep 2025 – May 2026</p>
+              <p class="where">Berlin, Germany (Remote)</p>
+              <p class="company">PANTOhealth</p>
+              <p class="summary">
+                Enterprise IoT railway monitoring and predictive maintenance
+                platform.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Backend Engineer</h2>
+              <ul>
+                <li>
+                  Developed backend services for railway monitoring systems and
+                  built optimized MongoDB queries for processing high-volume IoT
+                  sensor data.
+                </li>
+                <li>
+                  Implemented advanced Redis caching strategies to improve
+                  application performance and throughput.
+                </li>
+                <li>
+                  Integrated AWS S3 for scalable cloud object storage and
+                  designed RabbitMQ-based asynchronous workflows.
+                </li>
+                <li>
+                  Built and maintained CI/CD pipelines for automated testing and
+                  managed Dockerized production environments.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">Oct 2025 – Jan 2026</p>
+              <p class="where">Boston, USA (Remote)</p>
+              <p class="company">Selltory</p>
+              <p class="summary">
+                E-commerce / Sales infrastructure platform.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Backend Engineer</h2>
+              <ul>
+                <li>
+                  Developed backend services using NestJS and Apollo GraphQL
+                  Server for order management, product catalog, and customer
+                  operations.
+                </li>
+                <li>
+                  Designed efficient GraphQL schemas and resolvers, and improved
+                  API response times under high traffic.
+                </li>
+                <li>
+                  Collaborated with cross-functional teams to build scalable,
+                  maintainable, and production-ready backend services following
+                  microservices best practices.
+                </li>
+                <li>
+                  Optimized database performance and introduced caching for
+                  high-traffic commerce flows.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="rail-label">Projects</span>
+        <div class="jobs">
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">Public Project</p>
+              <p class="company">Chat App</p>
+              <p class="summary">
+                Full-stack realtime chat with GraphQL subscriptions.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Full-Stack Engineer</h2>
+              <ul>
+                <li>
+                  Built a full-stack realtime messaging product (direct + group)
+                  with NestJS GraphQL, React, and live WebSocket subscriptions.
+                </li>
+                <li>
+                  Implemented JWT cookie auth, unread notifications, paginated
+                  history, and file attachments via S3-compatible storage.
+                </li>
+                <li>
+                  Used Redis pub/sub for subscription fan-out and MongoDB for
+                  persistence; deployed the API and SPA independently.
+                </li>
+              </ul>
+              <p class="links">
+                <a href="https://chat-graphql-sigma.vercel.app/">Live</a>
+                ·
+                <a href="https://github.com/daryamhm77/chat-graphql">GitHub</a>
+                · NestJS · GraphQL · React · MongoDB · Redis
+              </p>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="left">
+              <span class="dot"></span>
+              <p class="when">Public Project</p>
+              <p class="company">Insta</p>
+              <p class="summary">
+                Instagram-style social platform with end-to-end type safety.
+              </p>
+            </div>
+            <div class="role">
+              <h2>Full-Stack Engineer</h2>
+              <ul>
+                <li>
+                  Built an Instagram-style social app as a TypeScript monorepo
+                  with Next.js, NestJS, tRPC, Drizzle ORM, and PostgreSQL.
+                </li>
+                <li>
+                  Implemented Better Auth sessions, protected routes, photo feed
+                  with likes (optimistic UI), and image uploads.
+                </li>
+                <li>
+                  Shared Zod schemas across client and server for end-to-end
+                  type-safe APIs from database to UI.
+                </li>
+              </ul>
+              <p class="links">
+                <a href="https://insta-full-stack-trpc-web.vercel.app/">Live</a>
+                ·
+                <a href="https://github.com/daryamhm77/insta-full-stack-trpc">GitHub</a>
+                · Next.js · NestJS · tRPC · Drizzle · PostgreSQL
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="rail-label">Skills</span>
+        <div class="skill">
+          <div class="skill-label">
+            <span class="dot inner"></span>
+            Architecture &amp;<br />Messaging:
+          </div>
+          <p>
+            Microservices, Hexagonal Architecture, Clean Architecture,
+            Domain-Driven Design (DDD), CQRS, Event-Driven Architecture, API
+            Gateway Pattern, RabbitMQ, Redis Pub/Sub.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-label">
+            <span class="dot inner"></span>
+            Frontend:
+          </div>
+          <p>
+            Next.js, React, TypeScript, JavaScript, Tailwind CSS, Vite, Apollo
+            Client, tRPC, Responsive UI.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-label">
+            <span class="dot inner"></span>
+            Backend &amp;<br />DevOps:
+          </div>
+          <p>
+            Node.js, NestJS, Express.js, TypeScript, REST API, GraphQL, tRPC,
+            WebSocket (Socket.IO), Docker, Docker Compose, CI/CD (GitHub
+            Actions), Linux, Nginx, AWS S3, MinIO.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-label">
+            <span class="dot inner"></span>
+            Databases &amp;<br />Testing:
+          </div>
+          <p>
+            PostgreSQL, MongoDB, MySQL, Redis (Redis GEO), TypeORM, Drizzle ORM,
+            Jest, Unit &amp; Integration Testing.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="rail-label">Certificates</span>
+        <div class="meta-row">
+          <div class="skill-label">
+            <span class="dot inner"></span>
+            CodeNight<br />2024
+          </div>
+          <div class="cert">
+            <ul>
+              <li>Backend Engineering Bootcamp</li>
+              <li>
+                Intensive backend training covering Node.js, NestJS, TypeScript,
+                REST APIs, GraphQL, PostgreSQL, MongoDB, Redis, RabbitMQ,
+                Docker, Microservices, Authentication, Security, Testing, and
+                CI/CD, with hands-on development of production-style projects
+                including Digikala, Divar, and SnappFood backend systems.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="rail-label">Education</span>
+        <div class="meta-row">
+          <div class="left">
+            <span class="dot inner"></span>
+            <p class="when">2021 – 2025</p>
+            <p class="where">Karaj, Iran</p>
+          </div>
+          <div>
+            <p class="school">Azad University</p>
+            <p class="degree">Bachelor’s Degree in Software Engineering (B.Sc.)</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
